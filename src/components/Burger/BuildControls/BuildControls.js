@@ -9,6 +9,9 @@ const controls = [
 ];
 const buildControls = (props) => (
   <div className='BuildControls'>
+    <p>
+      Current Price : <strong>{props.price}</strong>
+    </p>
     {controls.map((ctrl) => (
       <BuildControl
         disabled={props.disabled[ctrl.type]}
@@ -18,6 +21,13 @@ const buildControls = (props) => (
         label={ctrl.label}
       />
     ))}
+
+    <button
+      onClick={props.ordered}
+      disabled={!props.purchasable}
+      className='OrderButton'>
+      ORDER NOW
+    </button>
   </div>
 );
 export default buildControls;
